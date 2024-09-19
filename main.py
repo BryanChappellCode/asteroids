@@ -20,10 +20,14 @@ def main():
             if event.type == pygame.QUIT:
                 return
             
-        screen.fill(color="Black")
-        pygame.display.flip()
+        screen.fill("black")
 
         player.draw(screen)
+        player.update(dt)
+
+        pygame.display.flip()
+
+        
 
         dt = fps.tick(60) / 1000
 
