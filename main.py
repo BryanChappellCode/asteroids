@@ -25,7 +25,9 @@ def main():
     player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
 
-    while(True):
+    continue_game = True
+
+    while(continue_game):
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -39,7 +41,11 @@ def main():
         for plyr in updatable:
             plyr.update(dt)
 
-        
+        for aster in asteroids:
+            if aster.collides(player):
+                print("Game Over!")
+                continue_game = False
+                
 
         pygame.display.flip()
 
